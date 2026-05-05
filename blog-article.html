@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Article – HDI Compagnie</title>
+  <meta name="description" id="page-desc" content="">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%232ECC8A' d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-titre); font-size: 1.4rem; font-weight: 700; color: var(--bleu-nuit); margin: 36px 0 14px; }
+    .article-body h3 { font-family: var(--font-titre); font-size: 1.1rem; font-weight: 700; color: var(--bleu-nuit); margin: 28px 0 12px; }
+    .article-body p { color: var(--gris-fonce); font-size: 0.95rem; line-height: 1.8; margin-bottom: 16px; }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { color: var(--gris-fonce); font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; list-style: disc; }
+    .article-info { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
+    .article-cat { background: var(--vert-energie); color: var(--bleu-nuit); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
+    .article-date { font-size: 0.83rem; color: var(--gris-texte); }
+    .note-info { background: rgba(46,204,138,0.08); border: 1px solid rgba(46,204,138,0.2); border-left: 3px solid var(--vert-energie); border-radius: var(--radius); padding: 18px 22px; margin: 28px 0; font-size: 0.87rem; color: var(--gris-fonce); line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<section class="page-hero" style="padding:56px 0 48px;">
+  <div class="page-hero__bg"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="page-hero__breadcrumb">
+      <a href="index.html">Accueil</a> › <a href="blog.html">Blog</a> › <span id="breadcrumb-title">Article</span>
+    </div>
+    <div id="hero-cat" class="hero__eyebrow">Blog</div>
+    <h1 class="page-hero__titre" id="article-title" style="font-size:clamp(1.6rem,3.5vw,2.6rem);">Chargement…</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="article-body">
+      <div class="article-info">
+        <span class="article-cat" id="art-cat"></span>
+        <span class="article-date" id="art-date"></span>
+      </div>
+      <div id="article-content"></div>
+      <div style="margin-top:48px;padding-top:40px;border-top:1px solid var(--gris-medium);">
+        <a href="blog.html" class="btn btn--outline">← Retour au blog</a>
+        <a href="contact.html" class="btn btn--primary" style="margin-left:12px;">Discuter de votre projet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/layout.js"></script>
+<script>
+const articles = {
+  '1': {
+    titre: 'Comment choisir une pompe à chaleur adaptée à son logement ?',
+    cat: 'Pompe à chaleur',
+    date: '12 novembre 2024',
+    contenu: `
+      <p>La pompe à chaleur (PAC) est aujourd'hui l'une des solutions de chauffage les plus efficaces sur le plan énergétique. Mais toutes les PAC ne se valent pas selon la configuration de votre logement. Voici les principaux critères à prendre en compte.</p>
+      <h2>Les trois grandes familles de pompes à chaleur</h2>
+      <p>On distingue principalement les pompes à chaleur <strong>air/air</strong>, <strong>air/eau</strong> et <strong>géothermiques</strong> (eau/eau ou sol/eau).</p>
+      <ul>
+        <li><strong>Air/air :</strong> capte les calories dans l'air extérieur pour chauffer l'air intérieur. Simple à installer, adaptée aux petites surfaces ou comme complément de chauffage.</li>
+        <li><strong>Air/eau :</strong> capte les calories dans l'air extérieur pour alimenter un circuit d'eau chaude (radiateurs basse température ou plancher chauffant). La plus répandue pour le chauffage principal.</li>
+        <li><strong>Géothermique :</strong> exploite la chaleur du sol ou d'une nappe phréatique. Très performante, mais nécessite un terrain adapté et un investissement initial plus élevé.</li>
+      </ul>
+      <h2>Les critères déterminants pour votre choix</h2>
+      <h3>La surface et les besoins en chaleur</h3>
+      <p>Le dimensionnement de la PAC doit être précis. Une PAC sous-dimensionnée ne couvrira pas vos besoins par grand froid ; une PAC surdimensionnée fonctionnera en cycles courts, ce qui réduit sa durée de vie et son efficacité.</p>
+      <h3>L'isolation du logement</h3>
+      <p>Une pompe à chaleur est plus efficace dans un logement bien isolé. Si votre logement présente des déperditions importantes, il peut être judicieux d'intervenir sur l'isolation avant de dimensionner la PAC.</p>
+      <h3>Le système d'émission existant</h3>
+      <p>Si vous avez déjà des radiateurs haute température, une PAC air/eau seule pourra nécessiter le remplacement de ces émetteurs. Les planchers chauffants et radiateurs basse température sont idéalement compatibles.</p>
+      <h3>Le coefficient de performance (COP)</h3>
+      <p>Le COP indique le rapport entre l'énergie produite et l'énergie électrique consommée. Plus il est élevé, plus la PAC est efficace. Attention : ce coefficient varie selon la température extérieure, le COP annuel (SCOP) est un indicateur plus représentatif.</p>
+      <div class="note-info">
+        <strong>À noter :</strong> les performances annoncées par les fabricants sont mesurées dans des conditions standardisées. Le rendement réel dépend de votre logement, de vos réglages et du climat local.
+      </div>
+      <h2>Et les aides financières ?</h2>
+      <p>Selon votre situation (revenus, type de logement, nature des travaux), certains dispositifs d'aides ou de financement peuvent être étudiés. HDI Compagnie peut vous accompagner dans l'analyse de votre éligibilité sans vous faire de promesses sur des montants incertains.</p>
+      <p>La meilleure démarche reste de commencer par une étude personnalisée de votre logement avant d'envisager le financement.</p>
+    `
+  },
+  '2': {
+    titre: 'Photovoltaïque : ce qu\'il faut vérifier avant de se lancer',
+    cat: 'Photovoltaïque',
+    date: '28 octobre 2024',
+    contenu: `
+      <p>L'installation de panneaux solaires photovoltaïques suscite un intérêt croissant, notamment face à la hausse des prix de l'électricité. Avant de vous lancer, voici les éléments essentiels à analyser pour s'assurer que l'investissement est pertinent dans votre cas.</p>
+      <h2>L'orientation et l'inclinaison de la toiture</h2>
+      <p>L'exposition de votre toiture est le facteur principal de rentabilité. Une toiture orientée plein sud avec une inclinaison d'environ 30 à 35° est idéale. Une orientation est ou ouest réduit la production de 15 à 25 %, mais peut rester intéressante selon les cas.</p>
+      <p>Une toiture plate peut accueillir des panneaux sur des supports inclinables orientés de manière optimale.</p>
+      <h2>L'ensoleillement local</h2>
+      <p>La région Rhône-Alpes dispose d'un ensoleillement correct, sans atteindre les performances du Sud de la France. Il convient de réaliser une simulation de production basée sur les données météorologiques locales réelles plutôt que sur des moyennes nationales.</p>
+      <h2>Les ombrages</h2>
+      <p>Cheminées, arbres, bâtiments voisins : même un ombrage partiel peut réduire significativement la production d'un panneau, et par effet de série, de l'ensemble de la rangée. Un état des lieux précis s'impose avant toute installation.</p>
+      <h2>L'état de la toiture et la charpente</h2>
+      <div class="note-info">
+        Avant toute installation photovoltaïque, il est recommandé de vérifier que la toiture est en bon état et que la charpente peut supporter le poids des modules (environ 15 à 20 kg/m²). Une toiture à rénover dans les 5 ans devrait être traitée avant l'installation.
+      </div>
+      <h2>Autoconsommation ou revente ?</h2>
+      <p>Deux configurations principales existent : l'autoconsommation totale (vous consommez tout ce que vous produisez, avec un surplus éventuellement stocké ou perdu) et la vente du surplus sur le réseau (via un contrat avec le gestionnaire de réseau).</p>
+      <p>Le choix dépend de vos habitudes de consommation, de la présence d'une batterie de stockage et du tarif de rachat en vigueur.</p>
+      <h2>Estimer honnêtement la rentabilité</h2>
+      <p>La rentabilité d'une installation photovoltaïque dépend de nombreux facteurs : coût d'installation, production réelle, taux d'autoconsommation, évolution des prix de l'électricité. Une simulation sérieuse doit prendre en compte des hypothèses prudentes et non les scénarios les plus optimistes.</p>
+    `
+  },
+  '3': {
+    titre: 'CEE professionnels : comprendre le principe sans se tromper',
+    cat: 'CEE Professionnels',
+    date: '15 octobre 2024',
+    contenu: `
+      <p>Les Certificats d'Économies d'Énergie (CEE) sont souvent présentés comme une source de financement automatique pour les travaux d'efficacité énergétique. La réalité est plus nuancée. Voici un éclairage honnête sur ce dispositif.</p>
+      <h2>Le principe des CEE</h2>
+      <p>Le dispositif CEE oblige les fournisseurs d'énergie (électricité, gaz, carburant…) à promouvoir des économies d'énergie auprès de leurs clients. Pour ce faire, ils financent des opérations d'amélioration de l'efficacité énergétique, en échange de "certificats" qui attestent des économies réalisées.</p>
+      <p>Concrètement, ces fournisseurs peuvent proposer une contribution financière à certains travaux, en contrepartie du transfert des certificats générés par l'opération.</p>
+      <h2>Ce que les CEE ne sont pas</h2>
+      <div class="note-info">
+        <strong>Important :</strong> les CEE ne constituent pas une aide automatique ni un droit acquis. L'éligibilité dépend du type d'opération, du secteur d'activité, de l'équipement remplacé, de la date d'engagement des travaux et des conditions fixées par le programme en vigueur. Les montants varient selon les périodes et les programmes.
+      </div>
+      <h2>Les opérations concernant les professionnels</h2>
+      <p>Plusieurs opérations standardisées existent pour le secteur non résidentiel : remplacement de pompe à chaleur, installation de déstratificateurs d'air, déshumidification de serres, isolation des toitures de bâtiments tertiaires, systèmes de ventilation avec récupération de chaleur, etc.</p>
+      <p>Pour chaque opération, une "fiche d'opération standardisée" définit les conditions d'éligibilité, le dimensionnement minimal, et le volume de CEE accordé (exprimé en kWh cumac).</p>
+      <h2>Comment s'y retrouver ?</h2>
+      <p>La démarche CEE implique plusieurs étapes : vérification de l'éligibilité avant les travaux, engagement auprès d'un obligé (fournisseur d'énergie) ou d'un délégataire, réalisation des travaux dans les règles, et dépôt du dossier.</p>
+      <p>HDI Compagnie peut étudier avec vous l'éligibilité de vos projets à des opérations CEE et vous accompagner dans cette démarche, sans vous promettre un résultat qui dépend de tiers et d'une réglementation évolutive.</p>
+    `
+  },
+  '4': {
+    titre: 'Pourquoi installer une VMC performante ?',
+    cat: 'Ventilation',
+    date: '2 octobre 2024',
+    contenu: `
+      <p>La ventilation est souvent le parent pauvre des projets de rénovation énergétique. Pourtant, une mauvaise qualité d'air intérieur a des conséquences réelles sur la santé, le confort et même la durabilité du bâtiment.</p>
+      <h2>Pourquoi ventiler ?</h2>
+      <p>Un logement ou un local professionnel produit en permanence de l'humidité (respiration, cuisine, douches, plantes…), du CO2, des COV (composés organiques volatils issus des matériaux) et d'autres polluants intérieurs. Sans renouvellement d'air, ces éléments s'accumulent.</p>
+      <p>La réglementation impose d'ailleurs un débit minimal de ventilation dans les logements (arrêté du 24 mars 1982 et normes ultérieures) et dans les locaux de travail.</p>
+      <h2>VMC simple flux vs double flux</h2>
+      <h3>VMC simple flux</h3>
+      <p>Elle extrait l'air vicié des pièces humides (salle de bain, WC, cuisine) et l'air frais entre naturellement par des entrées d'air en façade. Solution économique à l'installation, mais elle extrait aussi de la chaleur en hiver.</p>
+      <h3>VMC double flux</h3>
+      <p>Elle extrait l'air vicié <em>et</em> insuffle de l'air frais filtré, en récupérant jusqu'à 85-90 % de la chaleur de l'air extrait via un échangeur thermique. Plus coûteuse à l'installation, mais permet de réduire significativement les dépenses de chauffage dans les logements bien isolés.</p>
+      <h2>Les signes d'une ventilation insuffisante</h2>
+      <ul>
+        <li>Condensation chronique sur les vitres ou les murs</li>
+        <li>Apparition de moisissures dans les angles ou les pièces humides</li>
+        <li>Odeurs persistantes</li>
+        <li>Sensation de fatigue ou de maux de tête (CO2 élevé)</li>
+      </ul>
+      <div class="note-info">
+        Une VMC dégradée ou sous-dimensionnée peut aggraver ces problèmes. Un entretien régulier (nettoyage des bouches, remplacement des filtres) est essentiel à son bon fonctionnement.
+      </div>
+      <h2>Pour les professionnels</h2>
+      <p>Dans les locaux professionnels, la ventilation doit répondre à des exigences réglementaires spécifiques selon le type d'activité. HDI Compagnie peut étudier votre situation et vous proposer une solution dimensionnée et conforme.</p>
+    `
+  },
+  '5': {
+    titre: 'Déstratificateur d\'air : intérêt pour les bâtiments professionnels',
+    cat: 'Bâtiments professionnels',
+    date: '18 septembre 2024',
+    contenu: `
+      <p>Dans les bâtiments à grande hauteur sous plafond — entrepôts, halls industriels, serres, ateliers — le chauffage se heurte à un phénomène physique simple mais coûteux : la stratification de l'air.</p>
+      <h2>Le phénomène de stratification</h2>
+      <p>L'air chaud étant plus léger que l'air froid, il monte naturellement vers le plafond. Dans un bâtiment de 8 mètres de hauteur, la différence de température entre le sol et le plafond peut atteindre 6 à 10°C. Résultat : les occupants ou les marchandises au sol sont dans un air froid, tandis que des kilojoules de chaleur s'accumulent inutilement en hauteur.</p>
+      <h2>Le rôle du déstratificateur</h2>
+      <p>Un déstratificateur est un ventilateur de plafond à faible consommation qui brase doucement l'air du bâtiment, redistribuant vers le sol la chaleur accumulée en hauteur. Cela permet :</p>
+      <ul>
+        <li>D'homogénéiser la température dans tout le volume</li>
+        <li>De réduire la consigne de température du thermostat (puisque la chaleur est mieux répartie)</li>
+        <li>De diminuer les consommations de chauffage, parfois significativement selon la hauteur et l'isolation</li>
+      </ul>
+      <div class="note-info">
+        Les économies réalisées dépendent fortement de la hauteur du bâtiment, de son isolation et du système de chauffage en place. Toute estimation chiffrée doit être basée sur une analyse de votre bâtiment spécifique.
+      </div>
+      <h2>Conditions favorables</h2>
+      <p>Les déstratificateurs sont particulièrement efficaces dans des bâtiments de plus de 4-5 mètres de hauteur, avec un chauffage central (air pulsé, radiant ou autre). Ils sont moins pertinents dans des espaces très bien isolés ou déjà dotés d'un système de ventilation à distribution basse.</p>
+      <h2>Dispositifs CEE</h2>
+      <p>L'installation de déstratificateurs peut faire l'objet d'une étude dans le cadre des dispositifs CEE, sous réserve d'éligibilité. HDI Compagnie peut analyser votre situation et vous accompagner dans cette démarche.</p>
+    `
+  },
+  '6': {
+    titre: 'Déshumidification des serres : enjeux énergétiques et productivité',
+    cat: 'Agriculture',
+    date: '5 septembre 2024',
+    contenu: `
+      <p>La maîtrise de l'hygrométrie est un enjeu central pour les productions sous serre. Un taux d'humidité excessive nuit aux cultures, favorise les maladies fongiques et entraîne des surcoûts de chauffage. Voici pourquoi un système de déshumidification adapté peut changer la donne.</p>
+      <h2>Les effets d'une humidité excessive en serre</h2>
+      <p>Dans une serre, l'humidité provient principalement de la transpiration des plantes et de l'évaporation du sol. Lorsque l'hygrométrie dépasse les seuils optimaux pour la culture concernée :</p>
+      <ul>
+        <li>Le risque de maladies fongiques (botrytis, mildiou, oïdium…) augmente fortement</li>
+        <li>La croissance des plantes peut être ralentie</li>
+        <li>La condensation se dépose sur les feuilles et favorise les attaques pathogènes</li>
+        <li>Les frais phytosanitaires augmentent</li>
+      </ul>
+      <h2>Le lien avec les dépenses de chauffage</h2>
+      <p>La solution traditionnelle pour réduire l'humidité consiste à ouvrir les ouvrants et à chauffer davantage pour abaisser le point de rosée. Cette méthode est thermiquement très inefficace : on chauffe de l'air que l'on renouvelle immédiatement.</p>
+      <div class="note-info">
+        Un déshumidificateur dédié, correctement dimensionné, peut permettre de maintenir l'hygrométrie souhaitée avec une consommation énergétique moindre que le couple "chauffage + ouverture", selon les conditions extérieures et le type de culture.
+      </div>
+      <h2>Critères de dimensionnement</h2>
+      <p>Le choix d'un déshumidificateur doit prendre en compte le volume de la serre, la culture produite (chaque plante a des besoins hygrométriques propres), le climat local, et la période de production. Un dimensionnement sous-estimé sera inefficace ; un dimensionnement excessif sera coûteux à l'achat et à l'usage.</p>
+      <h2>Dispositifs CEE</h2>
+      <p>Des opérations de déshumidification en serre horticole sont référencées dans le dispositif CEE. L'éligibilité dépend des caractéristiques de l'installation et du type de production. HDI Compagnie peut étudier votre situation.</p>
+    `
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id') || '1';
+const art = articles[id] || articles['1'];
+
+document.getElementById('page-title').textContent = art.titre + ' – HDI Compagnie';
+document.getElementById('page-desc').setAttribute('content', art.titre);
+document.getElementById('article-title').textContent = art.titre;
+document.getElementById('breadcrumb-title').textContent = art.titre.substring(0, 40) + '…';
+document.getElementById('hero-cat').textContent = art.cat;
+document.getElementById('art-cat').textContent = art.cat;
+document.getElementById('art-date').textContent = art.date;
+document.getElementById('article-content').innerHTML = art.contenu;
+
+document.getElementById('nav-placeholder').innerHTML = getNav('blog.html');
+document.getElementById('footer-placeholder').innerHTML = getFooter();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
