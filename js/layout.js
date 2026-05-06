@@ -8,6 +8,10 @@ const HDI_PAGES = [
   { href: 'contact.html', label: 'Contact' }
 ];
 
+const HDI_PHONE_DISPLAY = '+33 7 56 99 99 56';
+const HDI_PHONE_HREF = 'tel:+33756999956';
+const HDI_EMAIL = 'contact@hdi-cie.fr';
+
 function navLinks(active) {
   return HDI_PAGES.map(page => (
     `<a class="nav__link${page.href === active ? ' active' : ''}" href="${page.href}">${page.label}</a>`
@@ -24,13 +28,14 @@ function buildNav(active) {
             <span class="brand__text">HDI COMPAGNIE<span>Solutions energetiques</span></span>
           </a>
           <div class="nav__links">${navLinks(active)}</div>
-          <a class="btn btn--blue nav__cta" href="contact.html">Nous contacter</a>
+          <a class="nav__phone" href="${HDI_PHONE_HREF}">${HDI_PHONE_DISPLAY}</a>
+          <a class="btn btn--blue nav__cta" href="contact.html">Demander une étude</a>
           <button class="nav__burger" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
         </div>
       </div>
-      <div class="mobile-panel" id="mobile-panel">${navLinks(active)}<a class="btn btn--blue" href="contact.html">Nous contacter</a></div>
+      <div class="mobile-panel" id="mobile-panel">${navLinks(active)}<a class="nav__phone" href="${HDI_PHONE_HREF}">${HDI_PHONE_DISPLAY}</a><a class="nav__phone" href="mailto:${HDI_EMAIL}">${HDI_EMAIL}</a><a class="btn btn--blue" href="contact.html">Demander une étude</a></div>
     </nav>
   `;
 }
@@ -42,8 +47,8 @@ function buildFooter() {
         <div class="footer__grid">
           <div>
             <div class="footer__brand">HDI COMPAGNIE</div>
-            <p>Equipements thermiques, climatisation, ventilation et solutions energetiques pour particuliers, professionnels et exploitations agricoles.</p>
-            <p class="footer__legal">72 RUE DU 4 AOUT 1789, 69100 VILLEURBANNE<br>SIREN : 929 400 588<br>TVA : FR20929400588</p>
+            <p>Equipements thermiques, climatisation, ventilation, photovoltaique et solutions energetiques pour particuliers et professionnels.</p>
+            <p class="footer__legal">SIREN : 929 400 588<br>TVA : FR20929400588</p>
           </div>
           <div>
             <h3>Navigation</h3>
@@ -60,12 +65,12 @@ function buildFooter() {
             <a href="solutions.html">Photovoltaique</a>
             <a href="solutions.html">Climatisation</a>
             <a href="solutions.html">VMC</a>
-            <a href="solutions.html">Deshumidification de serres</a>
+            <a href="solutions.html">Deshumidification technique</a>
             <a href="solutions.html">Destratification d'air</a>
           </div>
           <div>
-            <h3>Coordonnees</h3>
-            <p>HDI COMPAGNIE<br>72 RUE DU 4 AOUT 1789<br>69100 VILLEURBANNE</p>
+            <h3>Contact</h3>
+            <p>HDI COMPAGNIE<br>Etude de projets energetiques et professionnels<br><a href="${HDI_PHONE_HREF}">${HDI_PHONE_DISPLAY}</a><a href="mailto:${HDI_EMAIL}">${HDI_EMAIL}</a>SIREN : 929 400 588<br>TVA : FR20929400588</p>
             <a href="contact.html">Formulaire de contact</a>
             <a href="mentions-legales.html">Mentions legales</a>
           </div>

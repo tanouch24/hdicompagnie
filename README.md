@@ -1,6 +1,6 @@
 # HDI Compagnie – Site Vitrine
 
-Site vitrine professionnel pour **HDI COMPAGNIE**, spécialiste en installation d'équipements thermiques et de climatisation à Villeurbanne / Lyon.
+Site vitrine professionnel pour **HDI COMPAGNIE**, spécialiste en équipements thermiques, climatisation, ventilation, photovoltaïque et solutions énergétiques.
 
 ---
 

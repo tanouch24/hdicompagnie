@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — HDI COMPAGNIE</title>
-  <meta name="description" content="Contactez HDI COMPAGNIE pour un projet de chauffage, climatisation, ventilation, photovoltaïque ou optimisation énergétique en Rhône-Alpes.">
+  <meta name="description" content="Contactez HDI COMPAGNIE pour un projet de chauffage, climatisation, ventilation, photovoltaïque, déshumidification technique ou optimisation énergétique.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,16 +14,20 @@
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Accueil</a> / Contact</div>
       <div class="eyebrow eyebrow--light">Contact</div>
-      <h1 class="page-title">Parlons de votre projet</h1>
-      <p class="lead">Décrivez votre besoin. HDI COMPAGNIE vous recontacte pour préciser les éléments techniques et la suite à donner.</p>
+      <h1 class="page-title">Demander une étude claire</h1>
+      <p class="lead">Expliquez simplement votre situation. HDI COMPAGNIE reprend les éléments utiles avant de vous orienter vers la suite la plus cohérente.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container grid-2">
-      <form id="contact-form" class="info-card" data-reveal>
+      <form id="contact-form" class="contact-panel" data-reveal>
+        <div class="contact-intro">
+          <h2>Votre demande</h2>
+          <p class="muted">Quelques informations suffisent pour comprendre le besoin : type de bâtiment, équipement concerné, symptôme observé ou objectif recherché.</p>
+        </div>
         <div class="form-grid">
-          <div class="form-field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" required></div>
+          <div class="form-field"><label for="nom">Nom et société</label><input id="nom" name="nom" type="text" required></div>
           <div class="form-field"><label for="telephone">Téléphone</label><input id="telephone" name="telephone" type="tel" required></div>
           <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
           <div class="form-field">
@@ -32,22 +36,45 @@
               <option value="">Sélectionner</option>
               <option>Particulier</option>
               <option>Professionnel</option>
-              <option>Exploitant agricole</option>
+              <option>Projet technique spécifique</option>
             </select>
           </div>
-          <div class="form-field form-field--full"><label for="projet">Type de projet</label><input id="projet" name="projet" type="text" placeholder="Pompe à chaleur, VMC, serre agricole..."></div>
-          <div class="form-field form-field--full"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
-          <div class="form-field form-field--full"><button class="btn btn--blue" type="submit">Envoyer la demande</button></div>
+          <div class="form-field form-field--full">
+            <label for="projet">Type de projet</label>
+            <select id="projet" name="projet" required>
+              <option value="">Sélectionner</option>
+              <option>Pompe à chaleur</option>
+              <option>Photovoltaïque</option>
+              <option>Climatisation</option>
+              <option>VMC particulier</option>
+              <option>VMC professionnelle</option>
+              <option>Déshumidification technique</option>
+              <option>Déstratification d’air</option>
+              <option>Étude CEE</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-field form-field--full"><label for="message">Votre besoin</label><textarea id="message" name="message" placeholder="Exemple : bâtiment professionnel, condensation, ventilation insuffisante, chauffage à moderniser, étude CEE à vérifier..." required></textarea></div>
+          <div class="form-field form-field--full"><button class="btn btn--blue" type="submit">Demander une étude</button></div>
         </div>
         <p id="form-success" class="notice notice--light" hidden>Votre message a bien été préparé dans l’interface du site.</p>
       </form>
 
       <aside class="dark-card" data-reveal>
-        <div class="eyebrow">Coordonnées</div>
+        <div class="eyebrow">Étude projet</div>
         <h2>HDI COMPAGNIE</h2>
-        <p class="lead">72 RUE DU 4 AOUT 1789<br>69100 VILLEURBANNE</p>
-        <p class="notice">SIREN : 929 400 588<br>TVA : FR20929400588</p>
-        <p class="small" style="color:rgba(255,255,255,.68);margin-top:24px;">Activité : équipements thermiques, climatisation, ventilation, solutions énergétiques.</p>
+        <p class="lead">Un échange court permet de qualifier le besoin, les contraintes techniques et les dispositifs éventuellement applicables.</p>
+        <p class="notice">
+          Téléphone : <a href="tel:+33756999956" style="color:inherit;">+33 7 56 99 99 56</a><br>
+          Email : <a href="mailto:contact@hdi-cie.fr" style="color:inherit;">contact@hdi-cie.fr</a>
+        </p>
+        <div class="contact-highlights">
+          <div><strong>Équipements énergétiques</strong><span>Chauffage, climatisation, ventilation, photovoltaïque.</span></div>
+          <div><strong>Bâtiments professionnels</strong><span>Ventilation, déstratification, climat intérieur.</span></div>
+          <div><strong>Installations spécifiques</strong><span>Déshumidification, condensation, contraintes techniques.</span></div>
+          <div><strong>Étude CEE</strong><span>Vérification sous réserve d’éligibilité.</span></div>
+        </div>
+        <p class="small" style="color:rgba(255,255,255,.68);margin-top:24px;">SIREN : 929 400 588<br>TVA : FR20929400588</p>
       </aside>
     </div>
   </section>
