@@ -3,7 +3,7 @@ const HDI_PAGES = [
   { href: 'particuliers.html', label: 'Particuliers' },
   { href: 'professionnels.html', label: 'Professionnels' },
   { href: 'solutions.html', label: 'Solutions' },
-  { href: 'qui-sommes-nous.html', label: 'Qui sommes-nous' },
+  { href: 'qui-sommes-nous.html', label: 'À propos' },
   { href: 'blog.html', label: 'Blog' },
   { href: 'contact.html', label: 'Contact' }
 ];
@@ -11,6 +11,9 @@ const HDI_PAGES = [
 const HDI_PHONE_DISPLAY = '+33 7 56 99 99 56';
 const HDI_PHONE_HREF = 'tel:+33756999956';
 const HDI_EMAIL = 'contact@hdi-cie.fr';
+const SUPABASE_URL = 'https://qxbxfmmsdmdrqyidotli.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4YnhmbW1zZG1kcnF5aWRvdGxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwNzg4NDMsImV4cCI6MjA5MzY1NDg0M30.YTZ4wnRGuQcEt2iz2jRM-QmTJnMQeQI07wHAKtAJ5n8';
+const SUPABASE_CONTACT_TABLE = 'contact_requests';
 
 function navLinks(active) {
   return HDI_PAGES.map(page => (
@@ -112,12 +115,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
+  const error = document.getElementById('form-error');
   if (form && success) {
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', async event => {
       event.preventDefault();
-      success.hidden = false;
-      form.reset();
-      success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      success.hidden = true;
+      if (error) error.hidden = true;
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Envoi en cours...';
+      }
+
+      const formData = new FormData(form);
+      const payload = {
+        nom: formData.get('nom'),
+        telephone: formData.get('telephone'),
+        email: formData.get('email'),
+        client: formData.get('client'),
+        projet: formData.get('projet'),
+        message: formData.get('message'),
+        source: 'site_hdi_compagnie'
+      };
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_CONTACT_TABLE}`, {
+          method: 'POST',
+          headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            Prefer: 'return=minimal'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) throw new Error(`Supabase insert failed: ${response.status}`);
+
+        success.hidden = false;
+        form.reset();
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (insertError) {
+        console.error(insertError);
+        if (error) {
+          error.hidden = false;
+          error.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Demander une étude';
+        }
+      }
     });
   }
 });

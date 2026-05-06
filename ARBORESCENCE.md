@@ -27,6 +27,7 @@ HDI FINAL/
 ├── mentions-legales.html
 ├── README.md
 ├── ARBORESCENCE.md
+├── SUPABASE.md
 ├── .gitignore
 ├── css/
 │   └── style.css
