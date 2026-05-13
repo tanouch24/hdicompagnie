@@ -117,6 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const success = document.getElementById('form-success');
   const error = document.getElementById('form-error');
   if (form && success) {
+    const initialSubmitText = form.querySelector('button[type="submit"]')?.textContent || 'Demander mon audit';
+
+    const insertContactRequest = payload => fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_CONTACT_TABLE}`, {
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json',
+        Prefer: 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+
     form.addEventListener('submit', async event => {
       event.preventDefault();
       success.hidden = true;
@@ -129,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const formData = new FormData(form);
-      const payload = {
+      const basePayload = {
         nom: formData.get('nom'),
         telephone: formData.get('telephone'),
         email: formData.get('email'),
@@ -138,24 +151,24 @@ document.addEventListener('DOMContentLoaded', () => {
         message: formData.get('message'),
         source: 'site_hdi_compagnie'
       };
+      const extendedPayload = {
+        ...basePayload,
+        code_postal: formData.get('code_postal') || null,
+        consentement: formData.get('consentement') === 'on'
+      };
 
       try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_CONTACT_TABLE}`, {
-          method: 'POST',
-          headers: {
-            apikey: SUPABASE_ANON_KEY,
-            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json',
-            Prefer: 'return=minimal'
-          },
-          body: JSON.stringify(payload)
-        });
+        let response = await insertContactRequest(extendedPayload);
+
+        if (!response.ok && response.status === 400) {
+          response = await insertContactRequest(basePayload);
+        }
 
         if (!response.ok) throw new Error(`Supabase insert failed: ${response.status}`);
 
         success.hidden = false;
         form.reset();
-        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        window.location.href = '/merci.html';
       } catch (insertError) {
         console.error(insertError);
         if (error) {
@@ -165,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } finally {
         if (submitButton) {
           submitButton.disabled = false;
-          submitButton.textContent = 'Demander une étude';
+          submitButton.textContent = initialSubmitText;
         }
       }
     });

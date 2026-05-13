@@ -14,8 +14,8 @@
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Accueil</a> / Contact</div>
       <div class="eyebrow eyebrow--light">Contact</div>
-      <h1 class="page-title">Demander une étude claire</h1>
-      <p class="lead">Expliquez simplement votre situation. HDI COMPAGNIE reprend les éléments utiles avant de vous orienter vers la suite la plus cohérente.</p>
+      <h1 class="page-title">Demander un audit d’éligibilité</h1>
+      <p class="lead">Décrivez brièvement votre projet. HDI Compagnie vous recontactera pour qualifier votre demande et vérifier les dispositifs potentiellement mobilisables.</p>
     </div>
   </section>
 
@@ -30,6 +30,7 @@
           <div class="form-field"><label for="nom">Nom et société</label><input id="nom" name="nom" type="text" required></div>
           <div class="form-field"><label for="telephone">Téléphone</label><input id="telephone" name="telephone" type="tel" required></div>
           <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+          <div class="form-field"><label for="code_postal">Code postal</label><input id="code_postal" name="code_postal" type="text" inputmode="numeric" autocomplete="postal-code"></div>
           <div class="form-field">
             <label for="client">Type de client</label>
             <select id="client" name="client" required>
@@ -55,8 +56,15 @@
             </select>
           </div>
           <div class="form-field form-field--full"><label for="message">Votre besoin</label><textarea id="message" name="message" placeholder="Exemple : bâtiment professionnel, condensation, ventilation insuffisante, chauffage à moderniser, étude CEE à vérifier..." required></textarea></div>
-          <div class="form-field form-field--full"><button class="btn btn--blue" type="submit">Demander une étude</button></div>
+          <div class="form-field form-field--full">
+            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:700;color:var(--grey-700);">
+              <input name="consentement" type="checkbox" required style="width:auto;margin-top:5px;">
+              <span>J’accepte que mes informations soient utilisées pour être recontacté au sujet de ma demande.</span>
+            </label>
+          </div>
+          <div class="form-field form-field--full"><button class="btn btn--blue" type="submit">Demander mon audit</button></div>
         </div>
+        <p class="small" style="margin-top:18px;">Vos informations sont utilisées uniquement pour traiter votre demande. Vous pouvez demander leur suppression à tout moment.</p>
         <p id="form-success" class="notice notice--light" hidden>Votre demande a bien été envoyée. HDI COMPAGNIE vous recontactera rapidement.</p>
         <p id="form-error" class="notice notice--light" hidden>La demande n’a pas pu être envoyée. Vous pouvez contacter HDI COMPAGNIE par téléphone ou par email.</p>
       </form>
