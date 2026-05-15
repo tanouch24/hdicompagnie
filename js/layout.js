@@ -3,6 +3,7 @@ const HDI_PAGES = [
   { href: 'particuliers.html', label: 'Particuliers' },
   { href: 'professionnels.html', label: 'Professionnels' },
   { href: 'solutions.html', label: 'Solutions' },
+  { href: 'audit-aides-energetiques.html', label: 'Audit CEE' },
   { href: 'qui-sommes-nous.html', label: 'À propos' },
   { href: 'blog.html', label: 'Blog' },
   { href: 'contact.html', label: 'Contact' }
@@ -28,17 +29,17 @@ function buildNav(active) {
         <div class="nav__inner">
           <a class="brand" href="index.html" aria-label="HDI Compagnie - Accueil">
             <span class="brand__mark">HDI</span>
-            <span class="brand__text">HDI COMPAGNIE<span>Solutions energetiques</span></span>
+            <span class="brand__text">HDI COMPAGNIE<span>Solutions énergétiques</span></span>
           </a>
           <div class="nav__links">${navLinks(active)}</div>
           <a class="nav__phone" href="${HDI_PHONE_HREF}">${HDI_PHONE_DISPLAY}</a>
-          <a class="btn btn--blue nav__cta" href="contact.html">Demander une étude</a>
+          <a class="btn btn--blue nav__cta" href="/audit-aides-energetiques.html">Demander mon audit</a>
           <button class="nav__burger" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
         </div>
       </div>
-      <div class="mobile-panel" id="mobile-panel">${navLinks(active)}<a class="nav__phone" href="${HDI_PHONE_HREF}">${HDI_PHONE_DISPLAY}</a><a class="nav__phone" href="mailto:${HDI_EMAIL}">${HDI_EMAIL}</a><a class="btn btn--blue" href="contact.html">Demander une étude</a></div>
+      <div class="mobile-panel" id="mobile-panel">${navLinks(active)}<a class="nav__phone" href="${HDI_PHONE_HREF}">${HDI_PHONE_DISPLAY}</a><a class="nav__phone" href="mailto:${HDI_EMAIL}">${HDI_EMAIL}</a><a class="btn btn--blue" href="/audit-aides-energetiques.html">Demander mon audit</a></div>
     </nav>
   `;
 }
@@ -50,7 +51,7 @@ function buildFooter() {
         <div class="footer__grid">
           <div>
             <div class="footer__brand">HDI COMPAGNIE</div>
-            <p>Equipements thermiques, climatisation, ventilation, photovoltaique et solutions energetiques pour particuliers et professionnels.</p>
+            <p>Cabinet d’accompagnement énergétique : audit projet, aides CEE, qualification technique et suivi administratif.</p>
             <p class="footer__legal">SIREN : 929 400 588<br>TVA : FR20929400588</p>
           </div>
           <div>
@@ -59,32 +60,92 @@ function buildFooter() {
             <a href="particuliers.html">Particuliers</a>
             <a href="professionnels.html">Professionnels</a>
             <a href="solutions.html">Solutions</a>
+            <a href="audit-aides-energetiques.html">Audit CEE</a>
             <a href="qui-sommes-nous.html">Qui sommes-nous</a>
             <a href="blog.html">Blog</a>
           </div>
           <div>
-            <h3>Solutions</h3>
-            <a href="solutions.html">Pompe a chaleur</a>
-            <a href="solutions.html">Photovoltaique</a>
-            <a href="solutions.html">Climatisation</a>
-            <a href="solutions.html">VMC</a>
-            <a href="solutions.html">Deshumidification technique</a>
-            <a href="solutions.html">Destratification d'air</a>
+            <h3>Accompagnement</h3>
+            <a href="/audit-aides-energetiques.html">Audit d’éligibilité</a>
+            <a href="/chauffage-collectif-coproprietes.html">Chauffage collectif</a>
+            <a href="/deshumidification-professionnelle.html">Déshumidification pro</a>
+            <a href="professionnels.html#cee">Analyse CEE</a>
+            <a href="contact.html">Qualification projet</a>
           </div>
           <div>
             <h3>Contact</h3>
-            <p>HDI COMPAGNIE<br>Etude de projets energetiques et professionnels<br><a href="${HDI_PHONE_HREF}">${HDI_PHONE_DISPLAY}</a><a href="mailto:${HDI_EMAIL}">${HDI_EMAIL}</a>SIREN : 929 400 588<br>TVA : FR20929400588</p>
-            <a href="contact.html">Formulaire de contact</a>
-            <a href="mentions-legales.html">Mentions legales</a>
+            <p>HDI COMPAGNIE<br>Audit, étude d’éligibilité et accompagnement administratif<br><a href="${HDI_PHONE_HREF}">${HDI_PHONE_DISPLAY}</a><a href="mailto:${HDI_EMAIL}">${HDI_EMAIL}</a>SIREN : 929 400 588<br>TVA : FR20929400588</p>
+            <a href="/audit-aides-energetiques.html">Demander mon audit</a>
+            <a href="mentions-legales.html">Mentions légales</a>
           </div>
         </div>
         <div class="footer__bottom">
-          <span>© 2026 HDI COMPAGNIE - Tous droits reserves</span>
+          <span>© 2026 HDI COMPAGNIE - Tous droits réservés</span>
           <span>SIREN : 929 400 588 - TVA : FR20929400588</span>
         </div>
       </div>
     </footer>
   `;
+}
+
+function injectJsonLd(data) {
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(data);
+  document.head.appendChild(script);
+}
+
+function injectStructuredData() {
+  injectJsonLd({
+    '@context': 'https://schema.org',
+    '@type': ['Organization', 'LocalBusiness'],
+    name: 'HDI Compagnie',
+    url: 'https://www.dyleth.com/',
+    telephone: HDI_PHONE_DISPLAY.replace(/\s/g, ''),
+    email: HDI_EMAIL,
+    identifier: 'SIREN 929 400 588',
+    vatID: 'FR20929400588',
+    areaServed: 'FR',
+    description: 'Cabinet d’accompagnement énergétique, audit projet, aides CEE, qualification technique et suivi administratif.'
+  });
+
+  const breadcrumb = document.querySelector('.breadcrumb');
+  if (breadcrumb) {
+    const parts = breadcrumb.textContent.split('/').map(item => item.trim()).filter(Boolean);
+    injectJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: parts.map((name, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name,
+        item: index === parts.length - 1 ? location.href : new URL(index === 0 ? 'index.html' : '#', location.href).href
+      }))
+    });
+  }
+
+  const faqTitle = Array.from(document.querySelectorAll('h2')).find(title => title.textContent.trim().toLowerCase() === 'faq');
+  if (faqTitle) {
+    const questions = [];
+    let node = faqTitle.nextElementSibling;
+    while (node) {
+      if (node.tagName === 'H2') break;
+      if (node.tagName === 'H3' && node.nextElementSibling) {
+        questions.push({
+          '@type': 'Question',
+          name: node.textContent.trim(),
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: node.nextElementSibling.textContent.trim()
+          }
+        });
+      }
+      node = node.nextElementSibling;
+    }
+    if (questions.length) {
+      injectJsonLd({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: questions });
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -93,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerRoot = document.getElementById('footer-root');
   if (navRoot) navRoot.innerHTML = buildNav(currentPage);
   if (footerRoot) footerRoot.innerHTML = buildFooter();
+  injectStructuredData();
+  document.querySelectorAll('img:not([loading])').forEach(image => image.loading = 'lazy');
 
   const toggle = document.getElementById('menu-toggle');
   const panel = document.getElementById('mobile-panel');

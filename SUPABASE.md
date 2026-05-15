@@ -11,15 +11,21 @@ Le formulaire `contact.html` envoie les demandes vers Supabase via l'API REST.
 
 ```sql
 create table if not exists public.contact_requests (
-  id uuid primary key default gen_random_uuid(),
-  created_at timestamptz not null default now(),
+  id bigint generated always as identity primary key,
+  created_at timestamptz default now(),
+
   nom text,
   telephone text,
   email text,
+  code_postal text,
+
   client text,
   projet text,
   message text,
-  source text
+
+  consentement boolean default false,
+
+  source text default 'landing_ads'
 );
 
 alter table public.contact_requests enable row level security;
@@ -36,7 +42,9 @@ with check (true);
 - `nom`
 - `telephone`
 - `email`
+- `code_postal`
 - `client`
 - `projet`
 - `message`
+- `consentement`
 - `source`

@@ -3,88 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — HDI COMPAGNIE</title>
-  <meta name="description" content="Contactez HDI COMPAGNIE pour un projet de chauffage, climatisation, ventilation, photovoltaïque, déshumidification technique ou optimisation énergétique.">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Contact — Demander un audit énergétique | HDI Compagnie</title>
+  <meta name="description" content="Contactez HDI Compagnie pour un audit d’éligibilité, une étude CEE, un projet de chauffage, ventilation, photovoltaïque, déshumidification ou optimisation énergétique.">
+  <link rel="stylesheet" href="css/style.css?v=20260515-seo-fix">
 </head>
 <body>
 <div id="nav-root"></div>
 <main>
-  <section class="page-hero">
+  <section class="premium-hero" style="--hero-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1900&q=84')">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Accueil</a> / Contact</div>
-      <div class="eyebrow eyebrow--light">Contact</div>
-      <h1 class="page-title">Demander un audit d’éligibilité</h1>
-      <p class="lead">Décrivez brièvement votre projet. HDI Compagnie vous recontactera pour qualifier votre demande et vérifier les dispositifs potentiellement mobilisables.</p>
+      <div class="premium-hero__grid">
+        <div>
+          <div class="breadcrumb"><a href="index.html">Accueil</a> / Contact</div>
+          <div class="eyebrow eyebrow--light">Contact & qualification</div>
+          <h1 class="page-title">Demander un audit d’éligibilité</h1>
+          <p class="lead">Décrivez brièvement votre projet. HDI Compagnie vous recontacte pour qualifier la demande, vérifier les contraintes techniques et les dispositifs potentiellement mobilisables.</p>
+          <div class="btn-row" style="margin-top:26px"><a class="btn btn--primary" href="#contact-form">Remplir le formulaire</a><a class="btn btn--light" href="tel:+33756999956">Appeler HDI</a></div>
+        </div>
+        <aside class="cee-card"><div class="cee-card__inner"><div class="cee-badge">HDI</div><div><strong>Réponse rapide</strong><span>24/48h ouvrées</span></div></div></aside>
+      </div>
+      <div class="trust-bar">
+        <div class="trust-bar__item"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"/></svg></span><p>Projet qualifié<span>Besoin et bâtiment</span></p></div>
+        <div class="trust-bar__item"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18"/></svg></span><p>Aides étudiées<span>Sous réserve d’éligibilité</span></p></div>
+        <div class="trust-bar__item"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></span><p>Conseiller dédié<span>Échange humain</span></p></div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container grid-2">
+  <section class="section section--soft">
+    <div class="container premium-form-wrap">
+      <aside class="dark-card premium-form-side" data-reveal>
+        <div class="eyebrow">Étude projet</div>
+        <h2>Un conseiller HDI vérifie votre demande</h2>
+        <div class="check-list"><span>Lecture technique</span><span>Aides CEE possibles</span><span>Accompagnement dossier</span></div>
+        <p class="small" style="color:rgba(255,255,255,.68);margin-top:24px;">SIREN : 929 400 588<br>TVA : FR20929400588</p>
+      </aside>
+
       <form id="contact-form" class="contact-panel" data-reveal>
         <div class="contact-intro">
-          <h2>Votre demande</h2>
-          <p class="muted">Quelques informations suffisent pour comprendre le besoin : type de bâtiment, équipement concerné, symptôme observé ou objectif recherché.</p>
+          <h2><span class="highlight-text">Demander mon audit</span></h2>
+          <p class="muted">Quelques informations suffisent pour organiser le premier échange.</p>
+          <p class="notice notice--light">Réponse sous 24/48h ouvrées.</p>
         </div>
         <div class="form-grid">
-          <div class="form-field"><label for="nom">Nom et société</label><input id="nom" name="nom" type="text" required></div>
-          <div class="form-field"><label for="telephone">Téléphone</label><input id="telephone" name="telephone" type="tel" required></div>
-          <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
-          <div class="form-field"><label for="code_postal">Code postal</label><input id="code_postal" name="code_postal" type="text" inputmode="numeric" autocomplete="postal-code"></div>
-          <div class="form-field">
-            <label for="client">Type de client</label>
-            <select id="client" name="client" required>
-              <option value="">Sélectionner</option>
-              <option>Particulier</option>
-              <option>Professionnel</option>
-              <option>Projet technique spécifique</option>
-            </select>
-          </div>
-          <div class="form-field form-field--full">
-            <label for="projet">Type de projet</label>
-            <select id="projet" name="projet" required>
-              <option value="">Sélectionner</option>
-              <option>Pompe à chaleur</option>
-              <option>Photovoltaïque</option>
-              <option>Climatisation</option>
-              <option>VMC particulier</option>
-              <option>VMC professionnelle</option>
-              <option>Déshumidification technique</option>
-              <option>Déstratification d’air</option>
-              <option>Étude CEE</option>
-              <option>Autre</option>
-            </select>
-          </div>
-          <div class="form-field form-field--full"><label for="message">Votre besoin</label><textarea id="message" name="message" placeholder="Exemple : bâtiment professionnel, condensation, ventilation insuffisante, chauffage à moderniser, étude CEE à vérifier..." required></textarea></div>
-          <div class="form-field form-field--full">
-            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:700;color:var(--grey-700);">
-              <input name="consentement" type="checkbox" required style="width:auto;margin-top:5px;">
-              <span>J’accepte que mes informations soient utilisées pour être recontacté au sujet de ma demande.</span>
-            </label>
-          </div>
-          <div class="form-field form-field--full"><button class="btn btn--blue" type="submit">Demander mon audit</button></div>
+          <div class="form-field"><label for="nom">Nom / société *</label><input id="nom" name="nom" type="text" required></div>
+          <div class="form-field"><label for="telephone">Téléphone *</label><input id="telephone" name="telephone" type="tel" required></div>
+          <div class="form-field"><label for="code_postal">Code postal *</label><input id="code_postal" name="code_postal" type="text" inputmode="numeric" autocomplete="postal-code" required></div>
+          <div class="form-field form-field--wide"><label for="client">Profil</label><select id="client" name="client" required><option value="">Sélectionner</option><option>Particulier</option><option>Professionnel</option><option>Copropriété / syndic</option><option>Exploitant agricole</option><option>Projet technique spécifique</option></select></div>
+          <div class="form-field form-field--wide"><label for="projet">Type de projet</label><select id="projet" name="projet" required><option value="">Sélectionner</option><option>Audit aides / CEE</option><option>Pompe à chaleur</option><option>Chauffage collectif</option><option>Photovoltaïque</option><option>Climatisation</option><option>VMC / ventilation</option><option>Déshumidification professionnelle</option><option>Déstratification d’air</option><option>Optimisation énergétique</option><option>Autre</option></select></div>
+          <div class="form-field form-field--wide"><label for="message">Votre besoin <span style="font-weight:600;color:var(--grey-500);">(facultatif)</span></label><textarea id="message" name="message" placeholder="Exemple : bâtiment professionnel, condensation, devis à vérifier, chauffage à moderniser, étude CEE..."></textarea></div>
+          <div class="form-field form-field--wide"><label style="display:flex;gap:10px;align-items:flex-start;font-weight:700;color:var(--grey-700);"><input name="consentement" type="checkbox" required style="width:auto;min-height:auto;margin-top:5px;"><span>J’accepte que mes informations soient utilisées pour être recontacté au sujet de ma demande.</span></label></div>
+          <div class="form-field form-field--wide"><button class="btn btn--blue" type="submit">Me faire rappeler</button></div>
         </div>
-        <p class="small" style="margin-top:18px;">Vos informations sont utilisées uniquement pour traiter votre demande. Vous pouvez demander leur suppression à tout moment.</p>
+        <p class="small" style="margin-top:18px;">Vos informations sont utilisées uniquement pour traiter votre demande.</p>
         <p id="form-success" class="notice notice--light" hidden>Votre demande a bien été envoyée. HDI COMPAGNIE vous recontactera rapidement.</p>
         <p id="form-error" class="notice notice--light" hidden>La demande n’a pas pu être envoyée. Vous pouvez contacter HDI COMPAGNIE par téléphone ou par email.</p>
       </form>
+    </div>
+  </section>
 
-      <aside class="dark-card" data-reveal>
-        <div class="eyebrow">Étude projet</div>
-        <h2>HDI COMPAGNIE</h2>
-        <p class="lead">Un échange court permet de qualifier le besoin, les contraintes techniques et les dispositifs éventuellement applicables.</p>
-        <p class="notice">
-          Téléphone : <a href="tel:+33756999956" style="color:inherit;">+33 7 56 99 99 56</a><br>
-          Email : <a href="mailto:contact@hdi-cie.fr" style="color:inherit;">contact@hdi-cie.fr</a>
-        </p>
-        <div class="contact-highlights">
-          <div><strong>Équipements énergétiques</strong><span>Chauffage, climatisation, ventilation, photovoltaïque.</span></div>
-          <div><strong>Bâtiments professionnels</strong><span>Ventilation, déstratification, climat intérieur.</span></div>
-          <div><strong>Installations spécifiques</strong><span>Déshumidification, condensation, contraintes techniques.</span></div>
-          <div><strong>Étude CEE</strong><span>Vérification sous réserve d’éligibilité.</span></div>
-        </div>
-        <p class="small" style="color:rgba(255,255,255,.68);margin-top:24px;">SIREN : 929 400 588<br>TVA : FR20929400588</p>
-      </aside>
+  <section class="section section--compact">
+    <div class="container">
+      <div class="proof-band" data-reveal>
+        <span class="proof-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.6a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.27-1.25a2 2 0 0 1 2.11-.45c.83.28 1.7.48 2.6.6A2 2 0 0 1 22 16.92z"/></svg></span>
+        <div><h2>Contact direct</h2><p class="muted">Téléphone : <a href="tel:+33756999956">+33 7 56 99 99 56</a> · Email : <a href="mailto:contact@hdi-cie.fr">contact@hdi-cie.fr</a></p></div>
+        <div class="cee-card" aria-hidden="true"><div class="cee-card__inner"><div class="cee-badge">HDI</div><div><strong>Accompagnement</strong><span>Audit, CEE, dossier</span></div></div></div>
+      </div>
     </div>
   </section>
 </main>
