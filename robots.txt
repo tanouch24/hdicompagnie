@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.dyleth.com/sitemap.xml
+Sitemap: https://hdicompagnie.netlify.app/sitemap.xml
