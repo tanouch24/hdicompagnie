@@ -100,14 +100,14 @@ function injectStructuredData() {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'LocalBusiness'],
     name: 'HDI Compagnie',
-    url: ‘https://hdicompagnie.netlify.app/’,
-    telephone: HDI_PHONE_DISPLAY.replace(/\s/g, ‘’),
+    url: 'https://hdicompagnie.netlify.app/',
+    telephone: HDI_PHONE_DISPLAY.replace(/\s/g, ''),
     email: HDI_EMAIL,
-    identifier: ‘SIREN 929 400 588’,
-    vatID: ‘FR20929400588’,
-    areaServed: ‘FR’,
-    serviceType: [‘Audit énergétique’, ‘Accompagnement CEE’, ‘Audit aides énergie’, ‘Chauffage collectif’, ‘Déshumidification professionnelle’],
-    description: ‘Cabinet d’accompagnement énergétique, audit projet, aides CEE, qualification technique et suivi administratif.’
+    identifier: 'SIREN 929 400 588',
+    vatID: 'FR20929400588',
+    areaServed: 'FR',
+    serviceType: ['Audit energetique', 'Accompagnement CEE', 'Chauffage collectif', 'Deshumidification professionnelle'],
+    description: 'Cabinet d’accompagnement énergétique, audit projet, aides CEE, qualification technique et suivi administratif.'
   });
 
   const breadcrumb = document.querySelector('.breadcrumb');
