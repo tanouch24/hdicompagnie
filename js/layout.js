@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         client: formData.get('client'),
         projet: formData.get('projet'),
         message: formData.get('message'),
-        source: 'site_hdi_compagnie'
+        source: (location.pathname.replace(/\.html$/, '').split('/').filter(Boolean).pop() || 'index')
       };
       const extendedPayload = {
         ...basePayload,
