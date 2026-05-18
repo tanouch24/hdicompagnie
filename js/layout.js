@@ -100,7 +100,7 @@ function injectStructuredData() {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'LocalBusiness'],
     name: 'HDI Compagnie',
-    url: 'https://hdicompagnie.netlify.app/',
+    url: 'https://www.hdi-cie.fr/',
     telephone: HDI_PHONE_DISPLAY.replace(/\s/g, ''),
     email: HDI_EMAIL,
     identifier: 'SIREN 929 400 588',
