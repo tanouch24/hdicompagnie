@@ -100,13 +100,12 @@ function injectStructuredData() {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'LocalBusiness'],
     name: 'HDI Compagnie',
-    url: 'https://www.hdi-cie.fr/',
+    url: 'https://www.dyleth.com/',
     telephone: HDI_PHONE_DISPLAY.replace(/\s/g, ''),
     email: HDI_EMAIL,
     identifier: 'SIREN 929 400 588',
     vatID: 'FR20929400588',
     areaServed: 'FR',
-    serviceType: ['Audit energetique', 'Accompagnement CEE', 'Chauffage collectif', 'Deshumidification professionnelle'],
     description: 'Cabinet d’accompagnement énergétique, audit projet, aides CEE, qualification technique et suivi administratif.'
   });
 
@@ -213,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
         client: formData.get('client'),
         projet: formData.get('projet'),
         message: formData.get('message'),
-        source: (location.pathname.replace(/\.html$/, '').split('/').filter(Boolean).pop() || 'index')
+        source: 'site_hdi_compagnie'
       };
       const extendedPayload = {
         ...basePayload,

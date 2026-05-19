@@ -144,6 +144,49 @@
     }
   </style>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Audit d'éligibilité aux aides énergétiques", "provider": {"@type": "LocalBusiness", "name": "HDI Compagnie", "url": "https://hdi-cie.fr/"}, "url": "https://hdi-cie.fr/audit-aides-energetiques", "description": "Audit d'éligibilité aux aides CEE, vérification technique du projet et accompagnement au montage du dossier.", "areaServed": "FR", "serviceType": "Audit énergétique CEE"}</script>
+<!-- ═══════════════════════════════════════════════════
+     Meta Pixel — audit-aides-energetiques uniquement
+     Pixel ID : 2459102277876059
+     Events : PageView (automatique) · Lead (succes formulaire)
+══════════════════════════════════════════════════ -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2459102277876059');
+fbq('track', 'PageView');
+
+/* Lead — declenche une seule fois a la soumission reussie */
+(function () {
+  var _leadSent = false;
+  function watchFormSuccess() {
+    var el = document.getElementById('form-success');
+    if (!el) return;
+    var obs = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        if (m.attributeName === 'hidden' && !el.hidden && !_leadSent) {
+          _leadSent = true;
+          fbq('track', 'Lead');
+        }
+      });
+    });
+    obs.observe(el, { attributes: true });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', watchFormSuccess);
+  } else {
+    watchFormSuccess();
+  }
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2459102277876059&ev=PageView&noscript=1" alt=""></noscript>
+<!-- Fin Meta Pixel ════════════════════════════════ -->
 </head>
 <body>
 <div id="nav-root"></div>

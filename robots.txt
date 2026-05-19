@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hdi-cie.fr/sitemap.xml
+Sitemap: https://www.dyleth.com/sitemap.xml
