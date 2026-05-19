@@ -1,0 +1,3 @@
+# Redirect non-www to www
+https://hdi-cie.fr/* https://www.hdi-cie.fr/:splat 301!
+http://hdi-cie.fr/* https://www.hdi-cie.fr/:splat 301!
