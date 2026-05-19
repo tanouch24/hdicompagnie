@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.hdi-cie.fr/sitemap.xml
+Sitemap: https://hdi-cie.fr/sitemap.xml
