@@ -188,6 +188,23 @@ document.addEventListener('DOMContentLoaded', () => {
       body: JSON.stringify({ ...payload, table: 'contact_requests' })
     });
 
+    const submitNetlifyForm = payload => {
+      const body = new URLSearchParams();
+      body.append('form-name', 'contact_requests');
+
+      Object.keys(payload).forEach(key => {
+        if (payload[key] !== undefined && payload[key] !== null) {
+          body.append(key, String(payload[key]));
+        }
+      });
+
+      return fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString()
+      });
+    };
+
     form.addEventListener('submit', async event => {
       event.preventDefault();
       success.hidden = true;
@@ -223,6 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (!response.ok) throw new Error(`Lead insert failed: ${response.status}`);
+
+        submitNetlifyForm(extendedPayload).catch(err => {
+          console.warn('[netlify_forms] notification error:', err);
+        });
 
         success.hidden = false;
         form.reset();

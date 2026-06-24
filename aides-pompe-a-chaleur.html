@@ -461,7 +461,8 @@ alt=""></noscript>
             <p>Un conseiller HDI Compagnie vous contacte sous 24h ouvrées pour analyser votre dossier.</p>
           </div>
 
-          <form id="pac-form" novalidate>
+          <form id="pac-form" name="pac_leads" method="POST" data-netlify="true" novalidate>
+            <input type="hidden" name="form-name" value="pac_leads">
             <div class="form-grid">
               <div class="form-field">
                 <label for="nom">Nom *</label>
@@ -753,6 +754,23 @@ alt=""></noscript>
   var submitBtn      = document.getElementById('submit-btn');
   var ORIGINAL_LABEL = 'Vérifier mon éligibilité →';
 
+  function submitNetlifyForm(formName, payload) {
+    var body = new URLSearchParams();
+    body.append('form-name', formName);
+
+    Object.keys(payload).forEach(function (key) {
+      if (payload[key] !== undefined && payload[key] !== null) {
+        body.append(key, String(payload[key]));
+      }
+    });
+
+    return fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    });
+  }
+
   function clean(val) {
     return typeof val === 'string' ? val.trim().slice(0, 160) : '';
   }
@@ -798,6 +816,10 @@ alt=""></noscript>
     })
     .then(function (res) {
       if (!res.ok) { return res.text().then(function (t) { throw new Error('HTTP ' + res.status + ' — ' + t); }); }
+      submitNetlifyForm('pac_leads', payload).catch(function (err) {
+        console.warn('[netlify_forms] notification error:', err);
+      });
+
       form.style.display          = 'none';
       successBlock.style.display  = 'block';
       successBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

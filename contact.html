@@ -39,7 +39,8 @@
         <p class="small" style="color:rgba(255,255,255,.68);margin-top:24px;">SIREN : 929 400 588<br>TVA : FR20929400588</p>
       </aside>
 
-      <form id="contact-form" class="contact-panel" data-reveal>
+      <form id="contact-form" name="contact_requests" class="contact-panel" data-reveal method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact_requests">
         <div class="contact-intro">
           <h2><span class="highlight-text">Demander mon audit</span></h2>
           <p class="muted">Quelques informations suffisent pour organiser le premier échange.</p>
