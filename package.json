@@ -1,0 +1,23 @@
+{
+  "name": "hdicompagnie",
+  "version": "1.0.0",
+  "description": "Site vitrine professionnel pour **HDI COMPAGNIE**, spécialiste en équipements thermiques, climatisation, ventilation, photovoltaïque et solutions énergétiques.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanouch24/hdicompagnie.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanouch24/hdicompagnie/issues"
+  },
+  "homepage": "https://github.com/tanouch24/hdicompagnie#readme",
+  "dependencies": {
+    "pg": "^8.22.0"
+  }
+}

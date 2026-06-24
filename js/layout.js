@@ -12,9 +12,7 @@ const HDI_PAGES = [
 const HDI_PHONE_DISPLAY = '+33 7 56 99 99 56';
 const HDI_PHONE_HREF = 'tel:+33756999956';
 const HDI_EMAIL = 'contact@hdi-cie.fr';
-const SUPABASE_URL = 'https://qxbxfmmsdmdrqyidotli.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4YnhmbW1zZG1kcnF5aWRvdGxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwNzg4NDMsImV4cCI6MjA5MzY1NDg0M30.YTZ4wnRGuQcEt2iz2jRM-QmTJnMQeQI07wHAKtAJ5n8';
-const SUPABASE_CONTACT_TABLE = 'contact_requests';
+const LEAD_ENDPOINT = '/.netlify/functions/lead';
 
 function navLinks(active) {
   return HDI_PAGES.map(page => (
@@ -182,15 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form && success) {
     const initialSubmitText = form.querySelector('button[type="submit"]')?.textContent || 'Demander mon audit';
 
-    const insertContactRequest = payload => fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_CONTACT_TABLE}`, {
+    const insertContactRequest = payload => fetch(LEAD_ENDPOINT, {
       method: 'POST',
       headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal'
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({ ...payload, table: 'contact_requests' })
     });
 
     form.addEventListener('submit', async event => {
@@ -227,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
           response = await insertContactRequest(basePayload);
         }
 
-        if (!response.ok) throw new Error(`Supabase insert failed: ${response.status}`);
+        if (!response.ok) throw new Error(`Lead insert failed: ${response.status}`);
 
         success.hidden = false;
         form.reset();

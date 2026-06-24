@@ -740,14 +740,12 @@ alt=""></noscript>
   </div>
 </footer>
 
-<!-- ══ Script formulaire → Supabase (pac_leads) ══════════ -->
+<!-- ══ Script formulaire → Neon via Netlify Function (pac_leads) ══════════ -->
 <script>
 (function () {
   'use strict';
 
-  var SUPABASE_URL     = 'https://qxbxfmmsdmdrqyidotli.supabase.co';
-  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4YnhmbW1zZG1kcnF5aWRvdGxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwNzg4NDMsImV4cCI6MjA5MzY1NDg0M30.YTZ4wnRGuQcEt2iz2jRM-QmTJnMQeQI07wHAKtAJ5n8';
-  var TABLE            = 'pac_leads';
+  var LEAD_ENDPOINT = '/.netlify/functions/lead';
 
   var form           = document.getElementById('pac-form');
   var successBlock   = document.getElementById('form-success-block');
@@ -791,22 +789,19 @@ alt=""></noscript>
     submitBtn.disabled    = true;
     submitBtn.textContent = 'Envoi en cours…';
 
-    fetch(SUPABASE_URL + '/rest/v1/' + TABLE, {
-      method:  'POST',
+    fetch(LEAD_ENDPOINT, {
+      method: 'POST',
       headers: {
-        'apikey':        SUPABASE_ANON_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-        'Content-Type':  'application/json',
-        'Prefer':        'return=minimal'
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(Object.assign({}, payload, { table: 'pac_leads' }))
     })
     .then(function (res) {
       if (!res.ok) { return res.text().then(function (t) { throw new Error('HTTP ' + res.status + ' — ' + t); }); }
       form.style.display          = 'none';
       successBlock.style.display  = 'block';
       successBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      /* Lead — fired only on confirmed Supabase insert */
+      /* Lead — fired only on confirmed insert */
       if (typeof fbq === 'function') { fbq('track', 'Lead'); }
     })
     .catch(function (err) {
